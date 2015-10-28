@@ -1,0 +1,24 @@
+{
+    "tours":
+        [
+            {
+                "title": "Colosseum Underground Tour with Arena Floor, Third Ring, Roman Forum and Palatine Hill",
+                "description": "Experience all the wonder of the Colosseum with this unique tour. Our expert guide will take you to exceptional heights with access to the third ring, and then give you a fell of how it was to be a gladiator by leading you through the underground to the arena floor.",
+                "previewImage": "http://app.resrc.it/s=w220,pd1/o=85/http://www.citywonders.com/_product_images/246_pd_colosseum-arena-floor-340-282.jpg",
+                "seoURL": "/tours-rome/tours-the-colosseum-fantastic-tour"
+            },
+            {
+                "title": "Pompeii and Mt. Vesuvius Volcano Day Trip from Rome ",
+                "description": "Visit Pompeii as it was in 79AD when the ancient city was buried in volcanic ash, visit the crater of Mt. Vesuvius for spectacular views over the Bay of Naples and to witness the eruption site first-hand.!",
+                "previewImage": "http://app.resrc.it/s=w220,pd1/o=85/http://www.citywonders.com/_product_images/63_pd_pompeii-vesuvius.jpg",
+                "seoURL": "/tours-rome/tours-the-colosseum-2"
+            },
+            {
+                "title": "Eiffel tower tour modified",
+                "description": "With Skip the Line access at the Colosseum and our expert guide, you‘ll explore Rome from birth to the Renaissance and beyond. Also see the Spanish Steps, the Trevi Fountain the Pantheon and more!",
+                "previewImage": "http://app.resrc.it/s=w220,pd1/o=85/http://www.citywonders.com/_product_images/119_pd_Full-Day-Colosseum-and-Best-of-Rome-Tour.jpg",
+                "seoURL": "/tours-paris/tours-the-tour-eiffel-1"
+            }
+        ]
+
+}
