@@ -9,7 +9,6 @@ var flux = new Flux();
 Iso.bootstrap(function (state, meta, container) {
 
   flux.bootstrap(state);
-console.log(container)
   ReactDOM.render(
     <App flux={flux} />,
     container

@@ -4,3 +4,5 @@
   margin: 0 0 15px 0; }
   .tour-card .title {
     font-weight: bold; }
+  .tour-card .price {
+    font-size: 1.5em; }

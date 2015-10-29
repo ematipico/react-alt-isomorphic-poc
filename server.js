@@ -45,6 +45,7 @@ routes.getRoutes().forEach((item) => {
                 <head>
                   <meta charset="utf-8">
                   <title>${seoTitle}</title>
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
                   <link rel="stylesheet" href="/assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
                   <link rel="stylesheet" href="/assets/css/app.css" media="screen" title="no title" charset="utf-8">
                   <meta description="${seoDescription}">

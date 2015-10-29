@@ -28,7 +28,14 @@ class TourDetailComponent extends React.Component {
         this.AppActions = this.flux.getActions('AppActions');
         this.TourDetailStore = this.flux.getStore('TourDetailStore');
         this.state = this.TourDetailStore.getState();
+    }
 
+    componentDidMount() {
+        this.TourDetailStore.listen(this._onChange);
+    }
+
+    componentWillUnmount() {
+        this.TourDetailStore.unlisten(this._onChange);
     }
 
     _onChange() {

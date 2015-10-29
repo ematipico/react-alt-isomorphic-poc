@@ -5,7 +5,10 @@ class AppActions {
     constructor() {
         this.generateActions(
 			'loadAllTours',
-			'loadOneTour'
+			'loadOneTour',
+            'updateCategories',
+            'sortToursList',
+            'sortData'
 		);
     }
 
