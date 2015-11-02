@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ebb84cabadc5c9cb522c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a8e560bbae0836524855"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -564,11 +564,11 @@
 
 	var _appJsx2 = _interopRequireDefault(_appJsx);
 
-	var _iso = __webpack_require__(178);
+	var _iso = __webpack_require__(179);
 
 	var _iso2 = _interopRequireDefault(_iso);
 
-	var _fluxJs = __webpack_require__(180);
+	var _fluxJs = __webpack_require__(181);
 
 	var _fluxJs2 = _interopRequireDefault(_fluxJs);
 
@@ -20170,6 +20170,10 @@
 
 	var _storesRouteStoreJs2 = _interopRequireDefault(_storesRouteStoreJs);
 
+	var _componentsTopBarViewJsx = __webpack_require__(178);
+
+	var _componentsTopBarViewJsx2 = _interopRequireDefault(_componentsTopBarViewJsx);
+
 	var App = (function (_React$Component) {
 	    _inherits(App, _React$Component);
 
@@ -20219,8 +20223,13 @@
 	            }
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: 'container' },
-	                page
+	                null,
+	                _react2['default'].createElement(_componentsTopBarViewJsx2['default'], null),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    page
+	                )
 	            );
 	        }
 	    }]);
@@ -20306,51 +20315,54 @@
 	            var tours = [];
 	            var allTours = this.state.tours;
 	            for (var tour in allTours) {
+	                var img = {
+	                    backgroundImage: 'url(' + allTours[tour].previewImage + ')'
+	                };
 	                tours.push(_react2['default'].createElement(
-	                    'div',
+	                    'article',
 	                    { className: 'col-sm-12', key: tour },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: 'row tour-card' },
 	                        _react2['default'].createElement(
 	                            'div',
-	                            { className: 'col-xl-4 col-lg-5 col-md-5 col-sm-6' },
-	                            _react2['default'].createElement('img', { src: allTours[tour].previewImage })
+	                            { className: 'col-sm-12 first-row' },
+	                            _react2['default'].createElement('div', { className: 'col-xl-4 col-lg-6 col-md-5 col-sm-6 image', style: img }),
+	                            _react2['default'].createElement(
+	                                'div',
+	                                { className: 'col-xl-8 col-lg-6 col-md-5 hidden-sm-down hidden-xs-down description' },
+	                                _react2['default'].createElement(
+	                                    'p',
+	                                    { className: 'title' },
+	                                    allTours[tour].title
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'span',
+	                                    { className: 'hidden-sm-down' },
+	                                    allTours[tour].description
+	                                )
+	                            )
 	                        ),
 	                        _react2['default'].createElement(
 	                            'div',
-	                            { className: 'col-xl-8 col-lg-7 col-md-7 col-sm-6' },
+	                            { className: 'col-sm-12 second-row' },
 	                            _react2['default'].createElement(
 	                                'div',
-	                                { className: 'row' },
+	                                { className: 'col-sm-6 price' },
 	                                _react2['default'].createElement(
-	                                    'div',
-	                                    { className: 'col-xl-8 col-lg-8 col-md-8' },
-	                                    _react2['default'].createElement(
-	                                        'p',
-	                                        { className: 'title' },
-	                                        allTours[tour].title
-	                                    ),
-	                                    _react2['default'].createElement(
-	                                        'p',
-	                                        null,
-	                                        allTours[tour].description
-	                                    )
-	                                ),
+	                                    'span',
+	                                    { className: 'price label label-pill label-success' },
+	                                    allTours[tour].price.euro,
+	                                    ' €'
+	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                'div',
+	                                { className: 'col-sm-6 detail-button' },
 	                                _react2['default'].createElement(
-	                                    'div',
-	                                    { className: 'col-xl-4 col-lg-4 col-md-4' },
-	                                    _react2['default'].createElement(
-	                                        'p',
-	                                        { className: 'price' },
-	                                        allTours[tour].price.euro,
-	                                        ' €'
-	                                    ),
-	                                    _react2['default'].createElement(
-	                                        'a',
-	                                        { href: allTours[tour].seoURL, className: 'btn btn-primary' },
-	                                        'More info'
-	                                    )
+	                                    'a',
+	                                    { href: allTours[tour].seoURL, className: 'btn btn-primary btn-lg' },
+	                                    'More info'
 	                                )
 	                            )
 	                        )
@@ -20361,12 +20373,12 @@
 	                'div',
 	                { className: 'row tours-list' },
 	                _react2['default'].createElement(
-	                    'h2',
+	                    'h1',
 	                    null,
 	                    'The tours'
 	                ),
 	                _react2['default'].createElement(
-	                    'div',
+	                    'aside',
 	                    { className: 'col-lg-3 col-md-3' },
 	                    _react2['default'].createElement(_categoryFilterViewJsx2['default'], null)
 	                ),
@@ -20436,7 +20448,7 @@
 	        value: function render() {
 	            return _react2["default"].createElement(
 	                "div",
-	                { className: "from-group" },
+	                { className: "checkbox" },
 	                _react2["default"].createElement(
 	                    "label",
 	                    null,
@@ -20504,7 +20516,7 @@
 
 	            return _react2["default"].createElement(
 	                "form",
-	                { className: "inline-form" },
+	                { className: "inline-form sidebar" },
 	                _react2["default"].createElement(
 	                    "fieldset",
 	                    null,
@@ -20582,6 +20594,10 @@
 	    }, {
 	        key: '_onChange',
 	        value: function _onChange() {}
+
+	        /*
+	        It fires the action to sort the data
+	        */
 	    }, {
 	        key: '_onCriteriaChange',
 	        value: function _onCriteriaChange(evt) {
@@ -20592,10 +20608,10 @@
 	        value: function render() {
 	            return _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'sorter' },
 	                _react2['default'].createElement(
 	                    'select',
-	                    { name: 'sortCriteria', onChange: this._onCriteriaChange },
+	                    { name: 'sortCriteria', className: 'form-control', onChange: this._onCriteriaChange },
 	                    _react2['default'].createElement('option', { value: '' }),
 	                    this.props.criteria.map(function (crt, idx) {
 	                        return _react2['default'].createElement(
@@ -22709,6 +22725,60 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var TobBarComponent = (function (_React$Component) {
+	    _inherits(TobBarComponent, _React$Component);
+
+	    function TobBarComponent() {
+	        _classCallCheck(this, TobBarComponent);
+
+	        _get(Object.getPrototypeOf(TobBarComponent.prototype), "constructor", this).apply(this, arguments);
+	    }
+
+	    _createClass(TobBarComponent, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2["default"].createElement(
+	                "nav",
+	                { className: "nav" },
+	                _react2["default"].createElement(
+	                    "a",
+	                    { className: "nav-link", href: "/" },
+	                    _react2["default"].createElement("img", { className: "logo", src: "https://www.citywonders.com/images/logo-retina.png", alt: "City Wonders" })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TobBarComponent;
+	})(_react2["default"].Component);
+
+	exports["default"] = TobBarComponent;
+	module.exports = exports["default"];
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -22731,7 +22801,7 @@
 	  }
 	}
 
-	var escapeTextForBrowser = __webpack_require__(179);
+	var escapeTextForBrowser = __webpack_require__(180);
 
 	var defaultConfiguration = {
 	  markupClassName: '___iso-html___',
@@ -22866,7 +22936,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports) {
 
 	/*!
@@ -22897,7 +22967,7 @@
 	}
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22918,11 +22988,11 @@
 
 	var _alt2 = _interopRequireDefault(_alt);
 
-	var _actionsAppActionsJs = __webpack_require__(181);
+	var _actionsAppActionsJs = __webpack_require__(182);
 
 	var _actionsAppActionsJs2 = _interopRequireDefault(_actionsAppActionsJs);
 
-	var _storesAppStoreJs = __webpack_require__(188);
+	var _storesAppStoreJs = __webpack_require__(189);
 
 	var _storesAppStoreJs2 = _interopRequireDefault(_storesAppStoreJs);
 
@@ -22930,19 +23000,19 @@
 
 	var _storesRouteStoreJs2 = _interopRequireDefault(_storesRouteStoreJs);
 
-	var _componentsToursFeedStoreJs = __webpack_require__(189);
+	var _componentsToursFeedStoreJs = __webpack_require__(190);
 
 	var _componentsToursFeedStoreJs2 = _interopRequireDefault(_componentsToursFeedStoreJs);
 
-	var _componentsTourDetailStoreJs = __webpack_require__(191);
+	var _componentsTourDetailStoreJs = __webpack_require__(192);
 
 	var _componentsTourDetailStoreJs2 = _interopRequireDefault(_componentsTourDetailStoreJs);
 
-	var _componentsCategoryFilterStoreJs = __webpack_require__(192);
+	var _componentsCategoryFilterStoreJs = __webpack_require__(193);
 
 	var _componentsCategoryFilterStoreJs2 = _interopRequireDefault(_componentsCategoryFilterStoreJs);
 
-	var _componentsSorterStoreJs = __webpack_require__(195);
+	var _componentsSorterStoreJs = __webpack_require__(196);
 
 	var _componentsSorterStoreJs2 = _interopRequireDefault(_componentsSorterStoreJs);
 
@@ -22972,7 +23042,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22991,7 +23061,7 @@
 
 	var _alt2 = _interopRequireDefault(_alt);
 
-	var _apiDataJs = __webpack_require__(182);
+	var _apiDataJs = __webpack_require__(183);
 
 	var _apiDataJs2 = _interopRequireDefault(_apiDataJs);
 
@@ -23030,7 +23100,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23045,15 +23115,15 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _tourDetailsJson = __webpack_require__(183);
+	var _tourDetailsJson = __webpack_require__(184);
 
 	var _tourDetailsJson2 = _interopRequireDefault(_tourDetailsJson);
 
-	var _toursJson = __webpack_require__(184);
+	var _toursJson = __webpack_require__(185);
 
 	var _toursJson2 = _interopRequireDefault(_toursJson);
 
-	var _nodeFs = __webpack_require__(185);
+	var _nodeFs = __webpack_require__(186);
 
 	var _nodeFs2 = _interopRequireDefault(_nodeFs);
 
@@ -23096,7 +23166,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -23163,7 +23233,7 @@
 	};
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -23478,7 +23548,7 @@
 	};
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23486,7 +23556,7 @@
 	(function () {
 	  'use strict';
 
-	  var fs = __webpack_require__(186),
+	  var fs = __webpack_require__(187),
 	      mkdirOrig = fs.mkdir,
 	      mkdirSyncOrig = fs.mkdirSync,
 	      osSep = process.platform === 'win32' ? '\\' : '/';
@@ -23498,7 +23568,7 @@
 	   * are given to the completion callback.
 	   */
 	  function mkdir_p(path, mode, callback, position) {
-	    var parts = __webpack_require__(187).normalize(path).split(osSep);
+	    var parts = __webpack_require__(188).normalize(path).split(osSep);
 
 	    mode = mode || process.umask();
 	    position = position || 0;
@@ -23524,7 +23594,7 @@
 	  }
 
 	  function mkdirSync_p(path, mode, position) {
-	    var parts = __webpack_require__(187).normalize(path).split(osSep);
+	    var parts = __webpack_require__(188).normalize(path).split(osSep);
 
 	    mode = mode || process.umask();
 	    position = position || 0;
@@ -23596,13 +23666,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -23829,7 +23899,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23846,7 +23916,7 @@
 
 	var _alt2 = _interopRequireDefault(_alt);
 
-	var _actionsAppActionsJs = __webpack_require__(181);
+	var _actionsAppActionsJs = __webpack_require__(182);
 
 	var _actionsAppActionsJs2 = _interopRequireDefault(_actionsAppActionsJs);
 
@@ -23860,7 +23930,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23875,7 +23945,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _sorterSorterJs = __webpack_require__(190);
+	var _sorterSorterJs = __webpack_require__(191);
 
 	var _sorterSorterJs2 = _interopRequireDefault(_sorterSorterJs);
 
@@ -23972,10 +24042,18 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	'use strict';
+	/*
+	    I had to create static funcionts because for some reason,
+	    the store transforms the class into a normal object, losing the functions
+	*/
+	/**
+	*   @class Sorter
+	*   It implements the logic of the sorters 
+	*/
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
@@ -24014,7 +24092,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24051,7 +24129,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24066,11 +24144,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _lodash = __webpack_require__(193);
+	var _lodash = __webpack_require__(194);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _fluxJs = __webpack_require__(180);
+	var _fluxJs = __webpack_require__(181);
 
 	var _fluxJs2 = _interopRequireDefault(_fluxJs);
 
@@ -24133,7 +24211,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -30969,10 +31047,10 @@
 	if(moduleExports){(freeModule.exports = _)._ = _} // Export for Rhino with CommonJS support.
 	else {freeExports._ = _}}else { // Export for a browser or Rhino.
 	root._ = _}}).call(undefined);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(194)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)(module), (function() { return this; }())))
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30989,9 +31067,10 @@
 	};
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
+	/* The store of the Sorter. Not needed at the moment */
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {

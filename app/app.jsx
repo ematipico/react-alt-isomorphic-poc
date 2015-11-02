@@ -3,6 +3,7 @@ import ToursFeedComponent from './components/toursFeed/view.jsx';
 import TourDetailComponent from './components/tourDetail/view.jsx';
 import connectToStores from 'alt/utils/connectToStores';
 import RouteStore from './stores/routeStore.js';
+import TobBarComponent from './components/topBar/view.jsx';
 
 
 class App extends React.Component {
@@ -45,10 +46,12 @@ class App extends React.Component {
             page = <TourDetailComponent />
         }
         return (
-            <div className="container">
-            {page}
+            <div>
+                <TobBarComponent />
+                <div className="container">
+                    {page}
+                </div>
             </div>
-
         )
     }
 }

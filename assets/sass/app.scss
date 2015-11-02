@@ -1,12 +1,71 @@
+body {
+    background: #eeeeee;
+    .container {
+        background-color: #ffffff;
+        box-shadow: 1px 1px 19px -6px;
+    }
+}
+
+.nav {
+    background: #2D6CAF;
+    border-bottom: 4px solid #F8931D;
+    margin-bottom: 2em;
+    padding-bottom: 0.6em;
+    .logo {
+        width: 400px;
+        @media (max-width: 320px) {
+            width: 200px;
+        }
+    }
+}
+
+.sidebar {
+    box-shadow: 1px 6px 15px -5px #000000;
+    border: 1px solid #cccccc;
+    padding: 1em;
+    margin-top: 1em;
+
+
+}
+
+.sorter {
+    padding: 1em;
+}
+
 .tour-card {
   border: 1px solid #cccccc;
   box-shadow: 1px 6px 15px -5px #000000;
   margin: 0 0 15px 0;
-  .title {
-      font-weight: bold;
+  padding: 0.5em;
+  .first-row {
+      height: 150px;
+      overflow: hidden;
+      margin: 0.9em 0 0 0;
+      .image {
+          background-repeat: no-repeat;
+          height: 150px;
+      }
+      .description {
+
+      }
+      .title {
+          font-weight: bold;
+      }
+
+      .tour-image {
+          height: 150px;
+      }
   }
-  .price {
-      font-size: 1.5em;
-      
+  .second-row {
+      text-align: center;
+      margin: 0.9em 0 0 0;
+      .price {
+          font-size: 1.5em;
+          margin: 0.2em 0;
+      }
+      .detail-button {
+          margin: 0.2em 0;
+      }
   }
+
 }

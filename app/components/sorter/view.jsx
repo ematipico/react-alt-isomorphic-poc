@@ -26,7 +26,7 @@ class SorterComponent extends React.Component {
 
     }
     /*
-    It fires the action to sort the data    
+    It fires the action to sort the data
     */
     _onCriteriaChange(evt) {
         this.AppActions.sortData(evt.target.value);
@@ -34,8 +34,8 @@ class SorterComponent extends React.Component {
 
     render() {
         return (
-            <div>
-                <select name="sortCriteria" onChange={this._onCriteriaChange}>
+            <div className="sorter">
+                <select name="sortCriteria" className="form-control" onChange={this._onCriteriaChange}>
                     <option value=""></option>
                     {this.props.criteria.map((crt, idx) => {
                         return <option key={crt.name} value={crt.name}>{crt.label}</option>

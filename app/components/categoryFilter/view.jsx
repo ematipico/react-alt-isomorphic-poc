@@ -7,7 +7,7 @@ class Filter extends React.Component {
 
     render() {
         return (
-            <div className="from-group">
+            <div className="checkbox">
                 <label>
                     <input type="checkbox" value={this.props.name} name="category" onChange={this.props.action} checked={this.props.applied ? 'checked' : ''} /> {this.props.name}
                 </label>
@@ -58,7 +58,7 @@ class CategoryFilterComponent extends React.Component {
         let htmlFilters = [];
 
         return(
-            <form className="inline-form">
+            <form className="inline-form sidebar">
                 <fieldset>
                 {allFilters.map((filter, idx) => {
                     var click = this._onInputChange.bind(this, idx);

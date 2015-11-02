@@ -32,34 +32,39 @@ class ToursFeed extends React.Component {
         let tours = [];
         let allTours = this.state.tours;
         for (var tour in allTours) {
+            let img = {
+                backgroundImage: 'url(' + allTours[tour].previewImage + ')'
+            };
             tours.push(
-                <div className="col-sm-12" key={tour}>
+                <article className="col-sm-12" key={tour}>
                     <div className="row tour-card">
-                        <div className="col-xl-4 col-lg-5 col-md-5 col-sm-6">
-                            <img src={allTours[tour].previewImage} />
+                        <div className="col-sm-12 first-row">
+                            <div className="col-xl-4 col-lg-6 col-md-5 col-sm-6 image" style={img}>
+                            </div>
+                            <div className="col-xl-8 col-lg-6 col-md-5 hidden-sm-down hidden-xs-down description">
+                                <p className="title">{allTours[tour].title}</p>
+                                <span className="hidden-sm-down">{allTours[tour].description}</span>
+                            </div>
                         </div>
-                        <div className="col-xl-8 col-lg-7 col-md-7 col-sm-6">
-                            <div className="row">
-                                <div className="col-xl-8 col-lg-8 col-md-8">
-                                    <p className="title">{allTours[tour].title}</p>
-                                    <p>{allTours[tour].description}</p>
-                                </div>
-                                <div className="col-xl-4 col-lg-4 col-md-4">
-                                    <p className="price">{allTours[tour].price.euro} €</p>
-                                    <a href={allTours[tour].seoURL} className="btn btn-primary">More info</a>
-                                </div>
+                        <div className="col-sm-12 second-row">
+                            <div className="col-sm-6 price">
+                                <span className="price label label-pill label-success">{allTours[tour].price.euro} €</span>
+                            </div>
+
+                            <div className="col-sm-6 detail-button">
+                                <a href={allTours[tour].seoURL} className="btn btn-primary btn-lg">More info</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             )
         }
         return (
             <div className="row tours-list">
-                <h2>The tours</h2>
-                <div className="col-lg-3 col-md-3">
+                <h1>The tours</h1>
+                <aside className="col-lg-3 col-md-3">
                     <CategoryFilterComponent />
-                </div>
+                </aside>
                 <div className="col-lg-9 col-md-9">
                     <div className="col-sm-12">
                         <div className="">
@@ -69,7 +74,6 @@ class ToursFeed extends React.Component {
                     {tours}
                 </div>
             </div>
-
         )
     }
 

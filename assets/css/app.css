@@ -1,8 +1,50 @@
+body {
+  background: #eeeeee; }
+  body .container {
+    background-color: #ffffff;
+    box-shadow: 1px 1px 19px -6px; }
+
+.nav {
+  background: #2D6CAF;
+  border-bottom: 4px solid #F8931D;
+  margin-bottom: 2em;
+  padding-bottom: 0.6em; }
+  .nav .logo {
+    width: 400px; }
+    @media (max-width: 320px) {
+      .nav .logo {
+        width: 200px; } }
+
+.sidebar {
+  box-shadow: 1px 6px 15px -5px #000000;
+  border: 1px solid #cccccc;
+  padding: 1em;
+  margin-top: 1em; }
+
+.sorter {
+  padding: 1em; }
+
 .tour-card {
   border: 1px solid #cccccc;
   box-shadow: 1px 6px 15px -5px #000000;
-  margin: 0 0 15px 0; }
-  .tour-card .title {
-    font-weight: bold; }
-  .tour-card .price {
-    font-size: 1.5em; }
+  margin: 0 0 15px 0;
+  padding: 0.5em; }
+  .tour-card .first-row {
+    height: 150px;
+    overflow: hidden;
+    margin: 0.9em 0 0 0; }
+    .tour-card .first-row .image {
+      background-repeat: no-repeat;
+      height: 150px; }
+    .tour-card .first-row .title {
+      font-weight: bold; }
+    .tour-card .first-row .tour-image {
+      height: 150px; }
+  .tour-card .second-row {
+    text-align: center;
+    margin: 0.9em 0 0 0; }
+    .tour-card .second-row .price {
+      font-size: 1.5em;
+      margin: 0.2em 0; }
+    .tour-card .second-row .detail-button {
+      margin: 0.2em 0; }
