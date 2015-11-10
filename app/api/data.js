@@ -1,6 +1,7 @@
 import tourDetails from './tourDetails.json';
 import toursData from './tours.json';
-import fs from 'node-fs';
+import fs from 'fs';
+import Utils from '../utils/WebAPIUtils.js';
 
 let obj
 
@@ -9,10 +10,10 @@ class Api {
 
     }
 
-    getToursData() {
-
+    // SERVER SIDE METHOD
+    serverGetToursData(locale) {
         return new Promise((resolve, reject) => {
-            fs.readFile('./app/api/tours.json', 'utf8', function (err, data) {
+            fs.readFile('./data/tours.'+locale+'.json', 'utf8', function (err, data) {
                 if (err) throw err;
                 obj = JSON.parse(data);
                 resolve(obj.tours);
@@ -20,15 +21,31 @@ class Api {
         })
     }
 
-    getTourDetailData(city, tourName) {
+    // SERVER SIDE METHOD
+    serverGetTourDetailData(city, tourName, locale) {
         return new Promise((resolve, reject) => {
-            fs.readFile('./app/api/tourDetails.json', 'utf8', function (err, data) {
+            fs.readFile('./data/tourDetails.'+locale+'.json', 'utf8', function (err, data) {
                 if (err) throw err;
                 obj = JSON.parse(data);
                 resolve(obj['data'][city][tourName]);
             });
 
         })
+    }
+
+    ajaxGetToursData(lang) {
+        var config = {
+            url: './data/tours.'+ lang.locale +'.json'
+        }
+        return new Promise((resolve, reject) => {
+            Utils.Ajax.get(config).then((obj) => {
+                resolve(obj.tours);
+           });
+        })
+    }
+
+    ajaxGetTourDetailData() {
+
     }
 }
 

@@ -9,8 +9,8 @@ class CategoryFilterStore {
     }
 
 
-    onLoadAllTours(tours) {
-        this._fetchFilters(tours);
+    onLoadAllTours(opts) {
+        this._fetchFilters(opts.tours);
         this.setState({
             filters: this.filters
         })
@@ -29,9 +29,10 @@ class CategoryFilterStore {
         })
     }
 
-    
+
     _fetchFilters(tours) {
         var self = this;
+        self.filters = [];
         var categories = [];
         if (tours.length > 0) {
             tours.forEach((tour) => {

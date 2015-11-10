@@ -4,6 +4,7 @@ class ToursFeedStore {
     constructor() {
         this.AppActions = this.alt.getActions('AppActions');
         this.CategoryFilterStore = this.alt.getStore('CategoryFilterStore');
+        this.LocalisationStore = this.alt.getStore('LocalisationStore');
         this.bindActions(this.AppActions);
         this.cachedTours = {};
         this.currentCategories = [];
@@ -22,11 +23,11 @@ class ToursFeedStore {
 
     }
 
-
-    onLoadAllTours(tours) {
-        this.cachedTours = tours;
+    onLoadAllTours(opts) {
+        this.cachedTours = opts.tours;
         this.setState({
-            tours: tours
+            tours: opts.tours,
+            locale: opts.locale
         })
     }
 
@@ -41,7 +42,8 @@ class ToursFeedStore {
             }
         })
         this.setState({
-            tours: this.tours
+            tours: this.tours,
+            locale: this.locale
         });
         this.emitChange();
     }
@@ -54,7 +56,8 @@ class ToursFeedStore {
         }
         var filteredTours = this._filterList();
         this.setState({
-            tours: filteredTours
+            tours: filteredTours,
+            locale: this.locale
         });
         this._orderTours(this.currentCriteria);
         this.emitChange();

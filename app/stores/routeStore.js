@@ -15,7 +15,7 @@ class RouteStore {
     }
 
     goToToursFeeds(actions, ctx, page) {
-        return actions.toursFeeds().then(() => {
+        return actions.toursFeeds(ctx.getLocale()).then(() => {
             this.setState({
                 currentView: page
             })
@@ -26,21 +26,22 @@ class RouteStore {
                     keywords: "City,Wonders,Home,Page,Tours"
                 });
             })
-        }.bind(this));
-
+        // }.bind(this));
+        });
     }
 
     goToTourDetail(actions, ctx, page) {
         var city = ctx.params.city;
         var tourName = ctx.params.tourName;
-        return actions.tourDetail(city, tourName).then((SEO) => {
+        return actions.tourDetail(city, tourName, ctx.getLocale()).then((SEO) => {
             this.setState({
                 currentView: page
             });
             return new Promise((resolve) => {
                 resolve(SEO);
             })
-        }.bind(this));
+        //}.bind(this));
+        });
     }
 
     getCurrentView() {

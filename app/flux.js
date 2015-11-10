@@ -7,10 +7,13 @@ import ToursFeedStore from './components/toursFeed/store.js';
 import TourDetailStore from './components/tourDetail/store.js';
 import CategoryFilterStore from './components/categoryFilter/store.js';
 import SorterStore from './components/sorter/store.js';
+import LocalisationStore from './components/localisation/store.js';
 
 class Flux extends Alt {
-    constructor() {
+    constructor(lang, locales) {
         super();
+        this.locale = lang;
+        this.locales = locales;
         // adding the actions
         this.addActions( 'AppActions',  AppActions);
 
@@ -21,6 +24,8 @@ class Flux extends Alt {
         this.addStore('RouteStore', RouteStore);
         this.addStore('CategoryFilterStore', CategoryFilterStore);
         this.addStore('SorterStore', SorterStore);
+        this.addStore('LocalisationStore', LocalisationStore);
+        this.getStore('LocalisationStore').loadLocale(this.locale);
     }
 }
 

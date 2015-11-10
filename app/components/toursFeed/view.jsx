@@ -31,6 +31,7 @@ class ToursFeed extends React.Component {
 
         let tours = [];
         let allTours = this.state.tours;
+        let locale = this.state.locale;
         for (var tour in allTours) {
             let img = {
                 backgroundImage: 'url(' + allTours[tour].previewImage + ')'
@@ -52,7 +53,7 @@ class ToursFeed extends React.Component {
                             </div>
 
                             <div className="col-sm-6 detail-button">
-                                <a href={allTours[tour].seoURL} className="btn btn-primary btn-lg">More info</a>
+                                <a href={ (locale !== "en" ? '/' + locale : '') + allTours[tour].seoURL} className="btn btn-primary btn-lg">More info</a>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ body {
     }
 }
 
-.nav {
+.navbar {
     background: #2D6CAF;
     border-bottom: 4px solid #F8931D;
     margin-bottom: 2em;
@@ -19,6 +19,10 @@ body {
     }
 }
 
+.lang-label {
+    font-size: 16px;
+    font-weight: bold;
+}
 .sidebar {
     box-shadow: 1px 6px 15px -5px #000000;
     border: 1px solid #cccccc;

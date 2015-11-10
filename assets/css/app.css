@@ -4,16 +4,20 @@ body {
     background-color: #ffffff;
     box-shadow: 1px 1px 19px -6px; }
 
-.nav {
+.navbar {
   background: #2D6CAF;
   border-bottom: 4px solid #F8931D;
   margin-bottom: 2em;
   padding-bottom: 0.6em; }
-  .nav .logo {
+  .navbar .logo {
     width: 400px; }
     @media (max-width: 320px) {
-      .nav .logo {
+      .navbar .logo {
         width: 200px; } }
+
+.lang-label {
+  font-size: 16px;
+  font-weight: bold; }
 
 .sidebar {
   box-shadow: 1px 6px 15px -5px #000000;

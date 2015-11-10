@@ -8,28 +8,38 @@ class AppActions {
 			'loadOneTour',
             'updateCategories',
             'sortToursList',
-            'sortData'
+            'sortData',
+            'changeLanguage'
 		);
     }
 
-    toursFeeds() {
+    toursFeeds(locale) {
         var self = this;
-        return API.getToursData().then(
+        return API.serverGetToursData(locale).then(
             function success(tours) {
-                self.alt.getActions('AppActions').loadAllTours(tours);
+                self.alt.getActions('AppActions').loadAllTours({tours: tours, locale: locale});
             }
         );
     }
 
 
-    tourDetail(city, tourName, resolve) {
+    tourDetail(city, tourName, locale) {
         var self = this;
-        return API.getTourDetailData(city, tourName).then(
+        return API.serverGetTourDetailData(city, tourName, locale).then(
             function success(tour) {
                 self.alt.getActions('AppActions').loadOneTour(tour);
                 return new Promise((resolve) => {
                     resolve(tour.SEO)
                 });
+            }
+        );
+    }
+
+    updateToursFeed(lang) {
+        var self = this;
+        API.ajaxGetToursData(lang).then(
+            function success(tours) {
+                self.alt.getActions('AppActions').loadAllTours({tours: tours, locale: lang});
             }
         );
     }

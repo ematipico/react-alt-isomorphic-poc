@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var gutil = require("gulp-util");
 var sass = require("gulp-sass");
+var babel = require('gulp-babel');
+var sourcemaps = require('gulp-sourcemaps');
 var webpack = require("webpack");
 var path = require('path');
 var sass = require('gulp-sass');
@@ -24,14 +26,27 @@ var configWebpack = {
           },
           {
               test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
-              loader: 'babel' // The module to load. "babel" is short for "babel-loader"
+              loader: 'babel', // The module to load. "babel" is short for "babel-loader"
+              exclude: /(node_modules|bower_components)/,
+              query: {
+                  stage: 0,
+                  stage: 1
+              }
+          },
+          {
+              test: /\.js?$/, // A regexp to test the require path. accepts either js or jsx
+              loader: 'babel', // The module to load. "babel" is short for "babel-loader"
+              exclude: /(node_modules|bower_components)/,
+              query: {
+                  stage: 0,
+                  stage: 1
+              }
+
           }
         ]
     },
     node: {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
+        fs: "empty"
     }
 }
 gulp.task("webpack", function(callback) {
@@ -39,6 +54,15 @@ gulp.task("webpack", function(callback) {
     gulp.src('./assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./assets/css/'));
+
+    gulp.src('server.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            stage: 0,
+            stage: 1
+        }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('build'));
 
     webpack(configWebpack, function(err, stats) {
         if(err) throw new gutil.PluginError("webpack", err);

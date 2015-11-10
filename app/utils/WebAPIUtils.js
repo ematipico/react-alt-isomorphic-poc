@@ -1,6 +1,9 @@
 import AppActions from '../actions/appActions.js';
-
+import xhr from './xhr.js';
 class Utils {
+    constructor() {
+        this.Ajax = new xhr();
+    }
     getAllData() {
       return new Promise((resolve) => {
           AppActions.getData(resolve)

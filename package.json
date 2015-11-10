@@ -5,16 +5,18 @@
     "dependencies": {
         "gulp": "^3.9.0",
         "gulp-util": "*",
-        "gulp-babel": "*",
+        "gulp-babel": "^5.3.0",
         "gulp-sass": "^2.0.4",
         "react": "^0.14.0",
         "react-dom": "^0.14.0",
-        "webpack-dev-server": "*",
         "alt": "*",
         "jquery": "^2.1.4",
-        "es6-promise": "^2.0.1",
         "express": "^4.11.2",
-        "gulp-live-server": "*"
+        "gulp-live-server": "*",
+        "i18n": "*",
+        "babel-core": "^5.3.3",
+        "babel-loader": "^5.3.3",
+        "react-intl": "https://github.com/yahoo/react-intl.git#v2.0.0-pr-3"
     },
     "scripts": {
         "start": "npm run build & npm run server",
@@ -23,10 +25,7 @@
     },
     "private": true,
     "devDependencies": {
-        "babel-core": "^5.8.25",
-        "babel-loader": "^5.3.2",
         "json-loader": "^0.5.3",
-        "jsx-loader": "*",
         "webpack": "^1.12.2",
         "jasmine-core": "^2.2.0",
         "karma": "*",
@@ -36,6 +35,11 @@
         "karma-chrome-launcher": "*",
         "karma-webpack": "^1.5.0",
         "iso": "^4.0.2",
-        "lodash": "3.10.1"
+        "lodash": "3.10.1",
+        "gulp-sourcemaps": "^1.6.0",
+        "babel-plugin-transform-decorators": "*",
+        "babel-preset-react": "^6.0.0",
+        "babel-preset-stage-0": "^6.0.0",
+        "babel-preset-stage-1": "^6.0.0"
     }
 }

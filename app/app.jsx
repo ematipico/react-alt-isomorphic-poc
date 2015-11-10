@@ -4,26 +4,55 @@ import TourDetailComponent from './components/tourDetail/view.jsx';
 import connectToStores from 'alt/utils/connectToStores';
 import RouteStore from './stores/routeStore.js';
 import TobBarComponent from './components/topBar/view.jsx';
+import { IntlProvider, injectIntl, intlShape, FormattedMessage} from 'react-intl';
 
+class InnerApp  extends React.Component {
+    render() {
+        return (
+            <div>
+                <TobBarComponent />
+                <h1><FormattedMessage {...this.props.mex} /></h1>
+                <div className="container">
+                    {this.props.page}
+                </div>
+            </div>
+        )
+
+    }
+}
 
 class App extends React.Component {
     getChildContext() {
         return {
-            flux: this.props.flux || new Error('flux not found!')
+            flux: this.props.flux || new Error('flux not found!'),
+            messages: this.LocalisationStore.getCurrentMessages()
         };
+    }
+
+    _getInitialState() {
+        return {
+            currentView: this.RouteStore.getCurrentView(),
+            currentLocale: this.LocalisationStore.getCurrentLocale(),
+            currentMessages: this.LocalisationStore.getCurrentMessages()
+        }
     }
 
     constructor(props) {
         super(props);
-
         this.RouteStore = this.props.flux.getStore('RouteStore');
         this.ToursFeedStore = this.props.flux.getStore('ToursFeedStore');
-        this.state = this.RouteStore.getState();
+        this.LocalisationStore = this.props.flux.getStore('LocalisationStore');
+        this.state = this._getInitialState();
 
         this._onChange = this._onChange.bind(this);
 
 
     }
+
+    componentDidMount() {
+        // this.state = this._getInitialState();
+    }
+
 
     componentWillMount() {
         this.RouteStore.listen(this._onChange);
@@ -39,23 +68,20 @@ class App extends React.Component {
 
     render() {
         let page = null;
-        console.log('this is the current view ', this.RouteStore.getCurrentView() )
         if (this.state.currentView == 'master') {
             page = <ToursFeedComponent />
         } else {
             page = <TourDetailComponent />
         }
         return (
-            <div>
-                <TobBarComponent />
-                <div className="container">
-                    {page}
-                </div>
-            </div>
+            <IntlProvider locale={this.state.currentLocale} messages={this.state.currentMessages}>
+                <InnerApp page={page} mex={this.state.currentMessages.home} />
+            </IntlProvider>
         )
     }
 }
 App.childContextTypes = {
-    flux: React.PropTypes.object.isRequired
+    flux: React.PropTypes.object.isRequired,
+    messages: React.PropTypes.object.isRequired
 };
 export default App;
