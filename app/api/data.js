@@ -3,7 +3,7 @@ import toursData from './tours.json';
 import fs from 'fs';
 import Utils from '../utils/WebAPIUtils.js';
 
-let obj
+let obj;
 
 class Api {
     constructor() {
@@ -18,7 +18,7 @@ class Api {
                 obj = JSON.parse(data);
                 resolve(obj.tours);
             });
-        })
+        });
     }
 
     // SERVER SIDE METHOD
@@ -27,10 +27,10 @@ class Api {
             fs.readFile('./data/tourDetails.'+locale+'.json', 'utf8', function (err, data) {
                 if (err) throw err;
                 obj = JSON.parse(data);
-                resolve(obj['data'][city][tourName]);
+                resolve(obj.data[city][tourName]);
             });
 
-        })
+        });
     }
 
     ajaxGetToursData(lang) {

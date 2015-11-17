@@ -5,8 +5,9 @@ export default class xhr {
     }
 
     x() {
+        let xmlhttp;
         if (window.XMLHttpRequest) {
-           return this.xmlhttp = new XMLHttpRequest();
+           xmlhttp = new XMLHttpRequest();
        } else {
            var versions = [
              "MSXML2.XmlHttp.6.0",
@@ -16,7 +17,6 @@ export default class xhr {
              "MSXML2.XmlHttp.2.0",
              "Microsoft.XmlHttp"
          ];
-         var xmlhttp;
          for(var i = 0; i < versions.length; i++) {
              try {
                  xmlhttp = new ActiveXObject(versions[i]);

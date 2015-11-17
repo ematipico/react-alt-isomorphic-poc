@@ -18,14 +18,14 @@ class RouteStore {
         return actions.toursFeeds(ctx.getLocale()).then(() => {
             this.setState({
                 currentView: page
-            })
+            });
             return new Promise((resolve) => {
                 resolve({
                     description: "City Wonders home page",
                     title: "City Wonders",
                     keywords: "City,Wonders,Home,Page,Tours"
                 });
-            })
+            });
         // }.bind(this));
         });
     }
@@ -39,7 +39,7 @@ class RouteStore {
             });
             return new Promise((resolve) => {
                 resolve(SEO);
-            })
+            });
         //}.bind(this));
         });
     }

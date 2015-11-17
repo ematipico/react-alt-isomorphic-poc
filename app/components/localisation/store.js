@@ -72,7 +72,6 @@ export default class LocalisationStore {
     onChangeLanguage(lang) {
         let newURL;
         let pathname;
-        console.log(lang.locale)
         // switching to english, removing the locale from the URL
         if (lang.locale === 'en') {
             pathname = window.location.pathname.replace('/' + this.currentLocale, '');
@@ -88,7 +87,6 @@ export default class LocalisationStore {
                 newURL = window.location.href.replace('/' + this.currentLocale, '/' + lang.locale);
             }
         }
-        console.log(newURL)
         window.location.assign(newURL);
     }
 
@@ -106,7 +104,7 @@ export default class LocalisationStore {
     }
 
     getAvailableLanguages() {
-        return this.availableLanguages
+        return this.availableLanguages;
     }
 
     getCurrentLanguage() {

@@ -29,7 +29,7 @@ class AppActions {
             function success(tour) {
                 self.alt.getActions('AppActions').loadOneTour(tour);
                 return new Promise((resolve) => {
-                    resolve(tour.SEO)
+                    resolve(tour.SEO);
                 });
             }
         );

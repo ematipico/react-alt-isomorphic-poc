@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import flux from '../../flux.js'
+import flux from '../../flux.js';
 
 class CategoryFilterStore {
     constructor() {
@@ -13,11 +13,11 @@ class CategoryFilterStore {
         this._fetchFilters(opts.tours);
         this.setState({
             filters: this.filters
-        })
+        });
     }
 
     onUpdateCategories(filter) {
-        this.filters[filter.idx]['applied'] = filter.checked;
+        this.filters[filter.idx].applied = filter.checked;
         var filtersToApply = [];
         this.filters.forEach((filter) => {
             if (filter.applied === true)  {
@@ -26,7 +26,7 @@ class CategoryFilterStore {
         });
         this.setState({
             filters: this.filters
-        })
+        });
     }
 
 
@@ -39,7 +39,7 @@ class CategoryFilterStore {
                 if (tour.categories) {
                     categories = _.union(categories, tour.categories);
                 }
-            })
+            });
             categories.forEach((category, idx) => {
                 self.filters.push({
                     name: category,

@@ -8,7 +8,7 @@ class TourDetailStore {
     onLoadOneTour(tourDetail) {
         this.setState({
             tour: tourDetail
-        })
+        });
     }
 }
 

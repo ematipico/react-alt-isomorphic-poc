@@ -6,7 +6,7 @@ class Utils {
     }
     getAllData() {
       return new Promise((resolve) => {
-          AppActions.getData(resolve)
+          AppActions.getData(resolve);
       });
     }
 
@@ -18,7 +18,7 @@ class Utils {
                 resolve: resolve,
                 reject: reject
             });
-        })
+        });
     }
 }
 

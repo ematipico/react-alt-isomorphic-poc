@@ -15,8 +15,8 @@ var configWebpack = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-        // new webpack.optimize.UglifyJsPlugin({minimize: true})
+        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
     ],
     module: {
       loaders: [
@@ -48,7 +48,7 @@ var configWebpack = {
     node: {
         fs: "empty"
     }
-}
+};
 gulp.task("webpack", function(callback) {
     // run webpack
     gulp.src('./assets/sass/**/*.scss')

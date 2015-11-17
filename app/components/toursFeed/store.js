@@ -28,7 +28,7 @@ class ToursFeedStore {
         this.setState({
             tours: opts.tours,
             locale: opts.locale
-        })
+        });
     }
 
     onSortData(criteriaName) {
@@ -38,9 +38,9 @@ class ToursFeedStore {
             if (crt.name === criteriaName) {
                 this.currentCriteria = crt;
                 self._orderTours(crt);
-                return true
+                return true;
             }
-        })
+        });
         this.setState({
             tours: this.tours,
             locale: this.locale
@@ -52,7 +52,7 @@ class ToursFeedStore {
         if (filter.checked) {
             this.currentCategories[filter.idx] = filter.category;
         } else {
-            delete this.currentCategories[filter.idx]
+            delete this.currentCategories[filter.idx];
         }
         var filteredTours = this._filterList();
         this.setState({
@@ -70,7 +70,7 @@ class ToursFeedStore {
                 finalTours.push(tour);
             }
         });
-        return finalTours.length == 0 ? this.cachedTours : finalTours;
+        return finalTours.length === 0 ? this.cachedTours : finalTours;
     }
 
     _orderTours(crt) {

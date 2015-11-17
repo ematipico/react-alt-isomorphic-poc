@@ -1,11 +1,10 @@
-'use strict'
 /*
     I had to create static funcionts because for some reason,
     the store transforms the class into a normal object, losing the functions
 */
 /**
 *   @class Sorter
-*   It implements the logic of the sorters 
+*   It implements the logic of the sorters
 */
 class Sorter {
 
