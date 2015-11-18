@@ -16,9 +16,9 @@ import i18n from 'i18n';
 let app = express();
 
 // Static directories to make css and js work
-app.use('/build', express.static(path.join('build')))
-app.use('/assets', express.static(path.join('assets')))
-app.use('/data', express.static(path.join('data')))
+app.use('/build', express.static(path.join('build')));
+app.use('/assets', express.static(path.join('assets')));
+app.use('/data', express.static(path.join('data')));
 
 // localisation part
 i18n.configure({
@@ -42,7 +42,7 @@ var seoKeywords = 'City,Wonders,Home,Page';
 
 app.get('/en', (req, res) => {
     res.redirect('/');
-})
+});
 
 routes.getRoutes().forEach((item) => {
     app.get(item.path, (req, res) => {
