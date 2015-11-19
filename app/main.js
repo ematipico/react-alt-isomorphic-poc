@@ -5,6 +5,9 @@ import App from './app.jsx';
 import Iso from 'iso';
 import Flux from './flux.js';
 
+import polyfill from './components/localisation/intl-polyfill.js';
+polyfill(['en', 'fr', 'es']);
+
 var flux = new Flux();
 
 Iso.bootstrap(function (state, meta, container) {

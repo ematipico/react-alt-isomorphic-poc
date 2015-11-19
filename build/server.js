@@ -47,6 +47,12 @@ var _i18n = require('i18n');
 
 var _i18n2 = _interopRequireDefault(_i18n);
 
+var _appComponentsLocalisationIntlPolyfillJs = require('../app/components/localisation/intl-polyfill.js');
+
+var _appComponentsLocalisationIntlPolyfillJs2 = _interopRequireDefault(_appComponentsLocalisationIntlPolyfillJs);
+
+(0, _appComponentsLocalisationIntlPolyfillJs2['default'])(['en', 'fr', 'es']);
+
 var app = (0, _express2['default'])();
 
 // Static directories to make css and js work

@@ -13,6 +13,10 @@ import routes from '../app/routes.js';
 import $ from 'jquery';
 import i18n from 'i18n';
 
+
+import polyfill from '../app/components/localisation/intl-polyfill.js';
+polyfill(['en', 'fr', 'es']);
+
 let app = express();
 
 // Static directories to make css and js work

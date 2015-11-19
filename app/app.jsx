@@ -4,7 +4,9 @@ import TourDetailComponent from './components/tourDetail/view.jsx';
 import connectToStores from 'alt/utils/connectToStores';
 import RouteStore from './stores/routeStore.js';
 import TobBarComponent from './components/topBar/view.jsx';
-import { IntlProvider, injectIntl, intlShape, FormattedMessage} from 'react-intl';
+import locales from './components/localisation/intl-loader.js';
+import locales2 from './components/localisation/intl-polyfill.js';
+import { IntlProvider, FormattedMessage} from 'react-intl';
 
 class InnerApp  extends React.Component {
     render() {

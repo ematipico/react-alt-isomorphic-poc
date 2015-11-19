@@ -1,7 +1,8 @@
-import { addLocaleData, defineMessages } from 'react-intl';
 import en from './locales/en.js';
 import fr from './locales/fr.js';
 import es from './locales/es.js';
+
+import { defineMessages } from 'react-intl';
 
 export default class LocalisationStore {
     constructor() {

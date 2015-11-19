@@ -16,7 +16,7 @@
         "i18n": "*",
         "babel-core": "^5.3.3",
         "babel-loader": "^5.3.3",
-        "react-intl": "https://github.com/yahoo/react-intl.git#v2.0.0-pr-3"
+        "intl": "*"
     },
     "scripts": {
         "start": "npm run build & npm run server",
@@ -40,6 +40,7 @@
         "babel-plugin-transform-decorators": "*",
         "babel-preset-react": "^6.0.0",
         "babel-preset-stage-0": "^6.0.0",
-        "babel-preset-stage-1": "^6.0.0"
+        "babel-preset-stage-1": "^6.0.0",
+        "babel-polyfill": "*"
     }
 }
