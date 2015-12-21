@@ -14,7 +14,7 @@ class LocalisationComponent extends React.Component {
             currentLocale: this.LocalisationStore.getCurrentLocale(),
             availableLanguages: this.LocalisationStore.getAvailableLanguages(),
             currentLabel : this.LocalisationStore.getCurrentLabel()
-        }
+        };
     }
 
 
